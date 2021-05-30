@@ -163,6 +163,7 @@
 (map! :leader :desc "Visualise undo-tree" :g "o u" #'undo-tree-visualize)
 (map! :leader :desc "Find file in other window" :g "g f F" #'magit-find-file-other-window)
 (map! :n "z X" #'kill-buffer-and-window)
+(map! :leader :desc "Diff hunk" :g "g d" #'git-gutter:popup-hunk)
 
 (setq highlight-indent-guides-method 'bitmap)
 (setq highlight-indent-guides-responsive 'top)
