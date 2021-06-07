@@ -50,6 +50,6 @@
 ;(unpin! t)
 
 ;; (package! lsp-treemacs)
+;; (package! magit-delta)
 
 (package! scroll-on-jump)
-(package! magit-delta)
