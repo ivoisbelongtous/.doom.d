@@ -180,3 +180,6 @@
 (add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
 ;; We want to use prettier
 (setq-hook! '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook) +format-with-lsp nil)
+
+;; Use flycheck-posframe instead
+(setq lsp-ui-sideline-enable nil)
