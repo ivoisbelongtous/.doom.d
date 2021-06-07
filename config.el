@@ -176,3 +176,5 @@
 (setq +vc-gutter-default-style nil)
 
 (setq which-key-idle-delay 0.4)
+
+(add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
