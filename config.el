@@ -178,3 +178,5 @@
 (setq which-key-idle-delay 0.4)
 
 (add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
+;; We want to use prettier
+(setq-hook! '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook) +format-with-lsp nil)
