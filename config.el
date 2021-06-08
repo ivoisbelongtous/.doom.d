@@ -178,8 +178,14 @@
 (setq which-key-idle-delay 0.4)
 
 (add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
-;; We want to use prettier
-(setq-hook! '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook) +format-with-lsp nil)
+;; We want to use prettier when a config file is defined
+(add-hook!
+ '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook)
+ (if (= 0
+        (car
+         (doom-call-process
+          "prettier" "--find-config-path" (buffer-file-name))))
+     (setq-local +format-with-lsp nil)))
 
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
