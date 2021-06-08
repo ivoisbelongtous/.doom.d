@@ -24,8 +24,10 @@
 (setq doom-font (font-spec :family "Hack" :size 12))
 (setq doom-variable-pitch-font (font-spec :family "Source Sans Pro" :size 20))
 ;; (setq-default line-spacing 0.2)
-;; (add-hook! 'writeroom-mode-hook (if writeroom-mode (setq line-spacing 0) (kill-local-variable 'line-spacing)))
-(add-hook! 'writeroom-mode-hook (setq display-line-numbers (not writeroom-mode)))
+(add-hook! 'writeroom-mode-hook
+  (if writeroom-mode (setq line-spacing 0) (kill-local-variable 'line-spacing)))
+(add-hook! 'writeroom-mode-hook
+  (setq display-line-numbers (not writeroom-mode)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -67,9 +69,9 @@
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
 ;; (setq rustic-format-trigger 'on-save)
 ;; (after! projectile
-;;   (setq projectile-project-root-files (delete "Cargo.toml" projectile-project-root-files))
-;;   (add-to-list 'projectile-project-root-files-bottom-up "Cargo.toml")
-;;   )
+;;   (setq projectile-project-root-files
+;;         (delete "Cargo.toml" projectile-project-root-files))
+;;   (add-to-list 'projectile-project-root-files-bottom-up "Cargo.toml"))
 (setq lsp-rust-analyzer-proc-macro-enable t)
 (setq lsp-rust-cfg-test t)
 (setq lsp-rust-all-features t)
@@ -159,9 +161,11 @@
 (setq ivy-extra-directories '("../"))
 
 ;; Useful keymap alternatives
-(map! :leader :desc "ibuffer for workspace" :g "b I" #'+ibuffer/open-for-current-workspace)
+(map! :leader :desc "ibuffer for workspace" :g "b I"
+      #'+ibuffer/open-for-current-workspace)
 (map! :leader :desc "Visualise undo-tree" :g "o u" #'undo-tree-visualize)
-(map! :leader :desc "Find file in other window" :g "g f F" #'magit-find-file-other-window)
+(map! :leader :desc "Find file in other window" :g "g f F"
+      #'magit-find-file-other-window)
 (map! :n "z X" #'kill-buffer-and-window)
 (map! :leader :desc "Diff hunk" :g "g d" #'git-gutter:popup-hunk)
 
