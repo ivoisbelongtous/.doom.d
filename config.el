@@ -136,7 +136,8 @@
   (scroll-on-jump-with-scroll-advice-add evil-scroll-up)
   (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-center)
   (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-top)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-bottom))
+  (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-bottom)
+  (scroll-on-jump-with-scroll-advice-add magit-jump-to-diffstat-or-diff))
 (scroll-on-jump-advice-add +lookup--jump-to)
 ;; (with-eval-after-load 'better-jumper
 ;;   (scroll-on-jump-advice-add better-jumper-jump-backward)
