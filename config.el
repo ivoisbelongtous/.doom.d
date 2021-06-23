@@ -73,6 +73,7 @@
 ;;         (delete "Cargo.toml" projectile-project-root-files))
 ;;   (add-to-list 'projectile-project-root-files-bottom-up "Cargo.toml"))
 (setq lsp-rust-analyzer-proc-macro-enable t)
+(setq lsp-rust-analyzer-cargo-watch-command "clippy")
 (setq lsp-rust-cfg-test t)
 (setq lsp-rust-all-features t)
 (setq lsp-modeline-diagnostics-enable nil)
