@@ -170,6 +170,8 @@
       #'magit-find-file-other-window)
 (map! :n "z X" #'kill-buffer-and-window)
 (map! :leader :desc "Diff hunk" :g "g d" #'git-gutter:popup-hunk)
+(map! :leader :desc "Auto Fill mode" :g "t W" #'auto-fill-mode)
+(map! :leader :desc "Format on save" :g "t S" #'format-all-mode)
 
 (setq highlight-indent-guides-method 'bitmap)
 (setq highlight-indent-guides-responsive 'top)
