@@ -197,3 +197,7 @@
 
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
+
+;; Set remote branches as the upstream so we can see when others have pushed
+;; changes to, e.g., main as soon as we fetch
+(setq magit-prefer-remote-upstream t)
