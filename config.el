@@ -196,12 +196,15 @@
 (add-to-list '+format-on-save-enabled-modes 'yaml-mode t)
 ;; We want to use prettier when a config file is defined
 (add-hook!
- '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook)
+ '(typescript-mode-hook rjsx-mode-hook yaml-mode-hook json-mode-hook)
  (if (= 0
         (car
          (doom-call-process
           "prettier" "--find-config-path" (buffer-file-name))))
-     (setq-local +format-with-lsp nil)))
+     (setq-local +format-with-lsp nil))
+ ;; The doom hack doesn't keep the current buffer path so can't pick up project
+ ;; config
+ (advice-remove #'format-all-buffer--with #'+format-buffer-a))
 
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
