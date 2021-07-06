@@ -78,6 +78,14 @@
 (setq lsp-rust-all-features t)
 (setq lsp-modeline-diagnostics-enable nil)
 
+(setq doom-modeline-lsp nil
+      doom-modeline-indent-info t
+      doom-modeline-major-mode-icon t
+      doom-modeline-default-eol-type 0
+      doom-modeline-github t
+      mode-line-percent-position nil)
+(lsp-modeline--disable-workspace-status)
+
 ;; NEOtree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 ;; (map! :n "<f8>" #'neotree-toggle)
