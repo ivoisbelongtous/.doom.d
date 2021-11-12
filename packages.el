@@ -49,7 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; (package! lsp-treemacs)
-;; (package! magit-delta)
+(package! lsp-treemacs :disable t)
+(package! magit-delta :disable t)
 
 (package! scroll-on-jump)
