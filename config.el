@@ -158,6 +158,10 @@
 ;;   (scroll-on-jump-advice-add better-jumper-jump-forward))
 (setq scroll-on-jump-duration 0.25)
 
+
+;; evil
+;; Let you move to the next line with h, l etc
+(setq evil-cross-lines t)
 ;; evil-snipe
 ;; Mirror vim-sneak
 (setq evil-snipe-scope 'buffer)
