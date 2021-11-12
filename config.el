@@ -94,8 +94,9 @@
 ;; treemacs
 (setq +treemacs-git-mode 'deferred)
 
-;; Allow hash to be entered
+;; Allow hash and en-dash to be entered
 (global-set-key (kbd "M-3") #'(lambda () (interactive) (insert "#")))
+(global-set-key (kbd "M--") #'(lambda () (interactive) (insert "–")))
 ;; For some reason the left ALT key on my external keyboard reports as the right
 (setq mac-right-option-modifier 'left)
 
