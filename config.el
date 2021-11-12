@@ -86,6 +86,10 @@
       mode-line-percent-position nil)
 (lsp-modeline--disable-workspace-status)
 
+(use-package! vertico-directory
+  :config
+  (map! :map vertico-map "C-l" #'vertico-directory-enter))
+
 ;; NEOtree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 ;; (map! :n "<f8>" #'neotree-toggle)
