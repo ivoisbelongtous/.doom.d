@@ -221,3 +221,12 @@
 ;; Set remote branches as the upstream so we can see when others have pushed
 ;; changes to, e.g., main as soon as we fetch
 (setq magit-prefer-remote-upstream t)
+
+(defun evil-surround-guard-block ()
+  "Read a guard from the minibuffer and wrap selection in block"
+  (let ((guard (evil-surround-read-from-minibuffer "" "")))
+    (cons (format "%s {" (or guard ""))
+          "}")))
+(after! evil-surround
+  (setq-default evil-surround-pairs-alist
+                (push '(?i . evil-surround-guard-block) evil-surround-pairs-alist)))
