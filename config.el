@@ -23,7 +23,6 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 (setq doom-font (font-spec :family "JetBrains Mono" :size 12))
 (setq doom-variable-pitch-font (font-spec :family "Source Sans Pro" :size 20))
-;; (setq-default line-spacing 0.2)
 (add-hook! 'writeroom-mode-hook
   (if writeroom-mode (setq line-spacing 0) (kill-local-variable 'line-spacing)))
 (add-hook! 'writeroom-mode-hook
@@ -67,11 +66,6 @@
 
 ;; Treat underscores as part of a word in Rust
 (add-hook! 'rustic-mode-hook (modify-syntax-entry ?_ "w"))
-;; (setq rustic-format-trigger 'on-save)
-;; (after! projectile
-;;   (setq projectile-project-root-files
-;;         (delete "Cargo.toml" projectile-project-root-files))
-;;   (add-to-list 'projectile-project-root-files-bottom-up "Cargo.toml"))
 (setq lsp-rust-analyzer-proc-macro-enable t)
 (setq lsp-rust-analyzer-cargo-watch-command "clippy")
 (setq lsp-rust-cfg-test t)
@@ -91,8 +85,6 @@
 
 ;; NEOtree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-;; (map! :n "<f8>" #'neotree-toggle)
-;; (map! :leader "k" :desc "Tree commands" map!(:n "m" 'neotree-toggle))
 
 ;; treemacs
 (setq +treemacs-git-mode 'deferred)
@@ -153,9 +145,6 @@
     (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-bottom)
     (scroll-on-jump-with-scroll-advice-add magit-jump-to-diffstat-or-diff))
   (scroll-on-jump-advice-add +lookup--jump-to)
-  ;; (with-eval-after-load 'better-jumper
-  ;;   (scroll-on-jump-advice-add better-jumper-jump-backward)
-  ;;   (scroll-on-jump-advice-add better-jumper-jump-forward))
   (setq scroll-on-jump-duration 0.25))
 
 ;; evil
@@ -216,9 +205,6 @@
          (doom-call-process
           "prettier" "--find-config-path" (buffer-file-name))))
      (setq-local +format-with-lsp nil)))
-;; The ESLint modeline indicator is useless clutter
-;; (after! lsp-mode
-;;   (add-hook 'lsp-after-open-hook #'lsp-modeline--disable-workspace-status))
 
 (add-to-list '+lookup-provider-url-alist '("NPM" "https://www.npmjs.com/search?q=%s"))
 
