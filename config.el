@@ -220,6 +220,8 @@
 ;; (after! lsp-mode
 ;;   (add-hook 'lsp-after-open-hook #'lsp-modeline--disable-workspace-status))
 
+(add-to-list '+lookup-provider-url-alist '("NPM" "https://www.npmjs.com/search?q=%s"))
+
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
 
