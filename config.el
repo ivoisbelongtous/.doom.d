@@ -84,7 +84,6 @@
       doom-modeline-default-eol-type 0
       doom-modeline-github t
       mode-line-percent-position nil)
-(lsp-modeline--disable-workspace-status)
 
 (use-package! vertico-directory
   :config
@@ -214,6 +213,9 @@
  ;; The doom hack doesn't keep the current buffer path so can't pick up project
  ;; config
  (advice-remove #'format-all-buffer--with #'+format-buffer-a))
+;; The ESLint modeline indicator is useless clutter
+;; (after! lsp-mode
+;;   (add-hook 'lsp-after-open-hook #'lsp-modeline--disable-workspace-status))
 
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
