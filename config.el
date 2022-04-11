@@ -130,33 +130,33 @@
    "C-p" #'evil-multiedit-prev)))
 
 ;; scroll-on-jump
-(after! evil
-  (scroll-on-jump-advice-add evil-undo)
-  (scroll-on-jump-advice-add evil-redo)
-  (scroll-on-jump-advice-add evil-jump-item)
-  (scroll-on-jump-advice-add evil-jump-forward)
-  (scroll-on-jump-advice-add evil-jump-backward)
-  (scroll-on-jump-advice-add evil-ex-search-next)
-  (scroll-on-jump-advice-add evil-ex-search-previous)
-  (scroll-on-jump-advice-add evil-forward-paragraph)
-  (scroll-on-jump-advice-add evil-backward-paragraph)
-  (scroll-on-jump-advice-add evil-goto-mark)
+(after! scroll-on-jump
+  (after! evil
+    (scroll-on-jump-advice-add evil-undo)
+    (scroll-on-jump-advice-add evil-redo)
+    (scroll-on-jump-advice-add evil-jump-item)
+    (scroll-on-jump-advice-add evil-jump-forward)
+    (scroll-on-jump-advice-add evil-jump-backward)
+    (scroll-on-jump-advice-add evil-ex-search-next)
+    (scroll-on-jump-advice-add evil-ex-search-previous)
+    (scroll-on-jump-advice-add evil-forward-paragraph)
+    (scroll-on-jump-advice-add evil-backward-paragraph)
+    (scroll-on-jump-advice-add evil-goto-mark)
 
-  ;; Actions that themselves scroll.
-  (scroll-on-jump-with-scroll-advice-add evil-goto-line)
-  (scroll-on-jump-with-scroll-advice-add evil-goto-first-line)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-down)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-up)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-center)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-top)
-  (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-bottom)
-  (scroll-on-jump-with-scroll-advice-add magit-jump-to-diffstat-or-diff))
-(scroll-on-jump-advice-add +lookup--jump-to)
-;; (with-eval-after-load 'better-jumper
-;;   (scroll-on-jump-advice-add better-jumper-jump-backward)
-;;   (scroll-on-jump-advice-add better-jumper-jump-forward))
-(setq scroll-on-jump-duration 0.25)
-
+    ;; Actions that themselves scroll.
+    (scroll-on-jump-with-scroll-advice-add evil-goto-line)
+    (scroll-on-jump-with-scroll-advice-add evil-goto-first-line)
+    (scroll-on-jump-with-scroll-advice-add evil-scroll-down)
+    (scroll-on-jump-with-scroll-advice-add evil-scroll-up)
+    (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-center)
+    (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-top)
+    (scroll-on-jump-with-scroll-advice-add evil-scroll-line-to-bottom)
+    (scroll-on-jump-with-scroll-advice-add magit-jump-to-diffstat-or-diff))
+  (scroll-on-jump-advice-add +lookup--jump-to)
+  ;; (with-eval-after-load 'better-jumper
+  ;;   (scroll-on-jump-advice-add better-jumper-jump-backward)
+  ;;   (scroll-on-jump-advice-add better-jumper-jump-forward))
+  (setq scroll-on-jump-duration 0.25))
 
 ;; evil
 ;; Let you move to the next line with h, l etc
@@ -220,6 +220,7 @@
 ;; Use flycheck-posframe instead
 (setq lsp-ui-sideline-enable nil)
 
-;; Set remote branches as the upstream so we can see when others have pushed
-;; changes to, e.g., main as soon as we fetch
-(setq magit-prefer-remote-upstream t)
+(after! magit
+  ;; Set remote branches as the upstream so we can see when others have pushed
+  ;; changes to, e.g., main as soon as we fetch
+  (setq magit-prefer-remote-upstream t))
