@@ -184,10 +184,16 @@
 (map! :leader :desc "Visualise undo-tree" :g "o u" #'undo-tree-visualize)
 (map! :leader :desc "Find file in other window" :g "g f F"
       #'magit-find-file-other-window)
+(map! :map git-commit-mode-map "C-c C-a" #'git-commit-co-authored)
 (map! :n "z X" #'kill-buffer-and-window)
 (map! :leader :desc "Diff hunk" :g "g d" #'git-gutter:popup-hunk)
 (map! :leader :desc "Auto Fill mode" :g "t W" #'auto-fill-mode)
 (map! :leader :desc "Format on save" :g "t S" #'format-all-mode)
+(map! :leader :desc "Subword mode" :g "t s" #'subword-mode)
+(map! :map ivy-minibuffer-map
+      "M-j" #'ivy-next-history-element
+      "M-k" #'ivy-previous-history-element
+      "M-SPC" #'ivy-restrict-to-matches)
 
 (setq highlight-indent-guides-method 'bitmap)
 (setq highlight-indent-guides-responsive 'top)
