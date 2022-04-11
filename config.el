@@ -215,10 +215,7 @@
         (car
          (doom-call-process
           "prettier" "--find-config-path" (buffer-file-name))))
-     (setq-local +format-with-lsp nil))
- ;; The doom hack doesn't keep the current buffer path so can't pick up project
- ;; config
- (advice-remove #'format-all-buffer--with #'+format-buffer-a))
+     (setq-local +format-with-lsp nil)))
 ;; The ESLint modeline indicator is useless clutter
 ;; (after! lsp-mode
 ;;   (add-hook 'lsp-after-open-hook #'lsp-modeline--disable-workspace-status))
