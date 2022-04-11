@@ -224,3 +224,16 @@
   ;; Set remote branches as the upstream so we can see when others have pushed
   ;; changes to, e.g., main as soon as we fetch
   (setq magit-prefer-remote-upstream t))
+
+(after! lispyville
+  ;; Enable additional lispville themes (additional-wrap and text-objects)
+  (lispyville-set-key-theme
+   '((operators normal)
+     c-w
+     (prettify insert)
+     (atom-movement t)
+     slurp/barf-lispy
+     additional
+     additional-insert
+     additional-wrap
+     text-objects)))
